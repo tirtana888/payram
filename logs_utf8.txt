@@ -1,0 +1,67 @@
+﻿This user must also own the server process.
+Setting log level to ERROR for production environment
+Initializing PostgreSQL database at /var/lib/payram/db/postgres
+The files belonging to this database system will be owned by user "postgres".
+
+The database cluster will be initialized with locale "C".
+The default database encoding has accordingly been set to "SQL_ASCII".
+The default text search configuration will be set to "english".
+
+Data page checksums are disabled.
+
+fixing permissions on existing directory /var/lib/payram/db/postgres ... ok
+creating subdirectories ... ok
+selecting dynamic shared memory implementation ... posix
+selecting default "max_connections" ... 100
+selecting default "shared_buffers" ... 128MB
+selecting default time zone ... Etc/UTC
+creating configuration files ... ok
+Starting Container
+running bootstrap script ... ok
+performing post-bootstrap initialization ... ok
+
+waiting for server to shut down....2026-03-23 16:43:56.015 UTC [40] LOG:  received fast shutdown request
+Success. You can now start the database server using:
+
+    /usr/lib/postgresql/17/bin/pg_ctl -D /var/lib/payram/db/postgres -l logfile start
+
+initdb: warning: enabling "trust" authentication for local connections
+initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-03-23 16:43:55.754 UTC [43] LOG:  database system was shut down at 2026-03-23 16:43:54 UTC
+waiting for server to start....2026-03-23 16:43:55.744 UTC [40] LOG:  starting PostgreSQL 17.9 (Debian 17.9-1.pgdg13+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 14.2.0-19) 14.2.0, 64-bit
+2026-03-23 16:43:55.744 UTC [40] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-03-23 16:43:55.762 UTC [40] LOG:  database system is ready to accept connections
+2026-03-23 16:43:55.744 UTC [40] LOG:  listening on IPv6 address "::", port 5432
+2026-03-23 16:43:55.748 UTC [40] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+ done
+server started
+Checking and creating PostgreSQL database/user if needed...
+DO
+syncing data to disk ... ok
+
+2026-03-23 16:43:56.017 UTC [40] LOG:  aborting any active transactions
+2026-03-23 16:43:56.020 UTC [40] LOG:  background worker "logical replication launcher" (PID 46) exited with exit code 1
+2026-03-23 16:43:56.022 UTC [41] LOG:  shutting down
+2026-03-23 16:43:56.023 UTC [41] LOG:  checkpoint starting: shutdown immediate
+2026-03-23 16:43:56.432 UTC [41] LOG:  checkpoint complete: wrote 934 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.015 s, sync=0.390 s, total=0.411 s; sync files=308, longest=0.051 s, average=0.002 s; distance=4259 kB, estimate=4259 kB; lsn=0/19157A8, redo lsn=0/19157A8
+2026-03-23 16:43:56.443 UTC [40] LOG:  database system is shut down
+ done
+server stopped
+Supervisor is not running, starting Supervisor...
+Waiting for Supervisor to start...
+2026-03-23 16:43:56,722 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2026-03-23 16:43:56,728 CRIT Server 'unix_http_server' running without any HTTP authentication checking
+Starting the server along with the job scheduler...
+trx-listener: started
+webhook-processor: started
+erc20-sweep-approval-processor: started
+eth-listener: started
+polygon-listener: started
+payram-core: started
+payram-web: ERROR (spawn error)
+account-processor: started
+base-listener: started
+broadcast-scw-deposit-wallet-processor: started
+btc-listener: started
+deposit-processor: started
+email-processor: started
