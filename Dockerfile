@@ -1,2 +1,1 @@
-﻿FROM
-payramapp/payram:latest
+FROM payramapp/payram:latest
